@@ -15,8 +15,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Iamtheowner from './components/iamtheowner';
 import IfoundThis from './components/ifoundthis';
 import Dashboard from './components/dashboard';
-
-
+import Faqs from './components/faqs'
+import Terms from './components/terms'
+import Contact from './components/contact'
 
 
 class App extends Component {
@@ -89,7 +90,10 @@ fetch(`${process.env.REACT_APP_backEndAPI_URL}/confirmtoken`, requestOptions)
       <Route path='/resetpassword' component={Resetpassword} />
       <Route path='/claimitem' component={Iamtheowner}/>
       <Route path='/returnitem' component={IfoundThis}/>
-      <Route path='/dashboard' component={Dashboard}/>
+      
+      <Route path='/faqs' component={Faqs}/>
+      <Route path='/terms' component={Terms}/>
+      <Route path='/contact' component={Contact}/>
         </BrowserRouter>
       
       

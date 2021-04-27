@@ -71,6 +71,8 @@ const SignUp = () =>{
  function signupAPI(e){ 
 
     e.preventDefault();
+  document.getElementById('0').innerHTML = 'working on it....';
+  document.getElementById('0').style.color = 'blue';
     var urlencoded, signupInputs;
     urlencoded = new URLSearchParams();
     //get input values

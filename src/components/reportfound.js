@@ -26,6 +26,8 @@ function getModalStyle() {
 export function ReportItem(e){
 
   e.preventDefault();
+  document.getElementById('0').innerHTML = 'working on it....';
+  document.getElementById('0').style.color = 'blue';
     var urlencoded = new URLSearchParams();
 
 

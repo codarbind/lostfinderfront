@@ -20,7 +20,6 @@ import HomeIcon from '@material-ui/icons/Home';
 import {Link} from 'react-router-dom';
 import Cookies from 'js-cookie';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
-import NotificationsSharpIcon from '@material-ui/icons/NotificationsSharp';
 import GavelSharpIcon from '@material-ui/icons/GavelSharp';
 import QuestionAnswerSharpIcon from '@material-ui/icons/QuestionAnswerSharp';
 import ReportProblemSharpIcon from '@material-ui/icons/ReportProblemSharp';
@@ -62,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
     paper: {
     background: "black",
     color:"yellow",
+    
     
   },
 
@@ -107,7 +107,8 @@ export default  function Header(props) {
       return;
     }
 
-    setState({ ...state, [anchor]: open });
+  setState({ ...state, [anchor]: open });
+
   };
 
 
@@ -121,27 +122,24 @@ export default  function Header(props) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-          <ListItem button key={'Home'}>
+          <ListItem button key={'Home'} component={Link} to='/' >
             <ListItemIcon className={classes.yellowFont}>{<HomeIcon />}</ListItemIcon>
               <ListItemText primary={'Home'} />
           </ListItem>
-          <ListItem button key={'Notifications'}>
-            <ListItemIcon className={classes.yellowFont}>{<NotificationsSharpIcon />}</ListItemIcon>
-              <ListItemText primary={'Notifications'} />
-          </ListItem>
-          <ListItem button key={'FAQ'}>
+          
+          <ListItem button key={'FAQ'} component={Link} to='/faqs' >
             <ListItemIcon className={classes.yellowFont}>{<ContactSupportIcon />}</ListItemIcon>
               <ListItemText primary={'FAQ'} />
           </ListItem>
-          <ListItem button key={'Report an Issue'}>
+          <ListItem button key={'Report an Issue'} component={Link} to='/contact' >
             <ListItemIcon className={classes.yellowFont}>{<ReportProblemSharpIcon />}</ListItemIcon>
               <ListItemText primary={'Report an Issue'} />
           </ListItem>
-          <ListItem button key={'Terms and Conditions'}>
+          <ListItem button key={'Terms and Conditions'} component={Link} to='/terms' >
             <ListItemIcon className={classes.yellowFont}>{<GavelSharpIcon />}</ListItemIcon>
               <ListItemText primary={'Terms and Conditions'} />
           </ListItem>
-          <ListItem button key={'Contact Us'}>
+          <ListItem button key={'Contact Us'} component={Link} to='/contact' >
             <ListItemIcon className={classes.yellowFont}>{<QuestionAnswerSharpIcon />}</ListItemIcon>
               <ListItemText primary={'Contact Us'} />
           </ListItem>
@@ -163,6 +161,7 @@ export default  function Header(props) {
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
+   
   };
 
   const handleClose = (e) => {
@@ -179,13 +178,15 @@ export default  function Header(props) {
 }
 
 
+
+
   return (
 
  
     <header>
       <AppBar position="static" className={classes.header}>
         <Toolbar>
-          <IconButton edge="start"  className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer('left', true)} >
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer('left', true)} >
             <MenuIcon />
             
           </IconButton>

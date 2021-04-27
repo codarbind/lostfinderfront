@@ -95,7 +95,6 @@ export default function Dashboard(props) {
     .then(results=>results.json()) 
     .then(results=>{
       alert(results.message);
-      console.log('deci',results,results.message);
       window.location.reload();
     })
   }
@@ -127,10 +126,7 @@ export default function Dashboard(props) {
   let responseIfDecisionRejectedForNotOwnerNotReporterUnsettled = (!props.details.owner && !(props.details.reporter ) && !(props.status == 'settled') && (<span><hr/><h3 style={{color:'white'}}>We are grateful!! However, the other user do not think the item with you is theirs. Kindly report this item found, let us find the rightful owner.</h3></span>) );
   let responseIfDecisionRejectedForOwnerReporterUnsettled = (props.details.owner && (props.details.reporter ) && !(props.status == 'settled') && (<span><hr/><h3 style={{color:'white'}}>Lets keep looking... We have updated the other user that that is not your item.</h3></span>) );
   let responseIfDecisionRejectedForOwnerNotReporterUnsettled = (props.details.owner && !(props.details.reporter ) && !(props.status == 'settled') && (<span><hr/><h3 style={{color:'white'}}>Hmmm, the finder thinks the item is not yours. We will keep looking out for yours.</h3></span>) );
-  
 
-
-  console.log('stat',props.claim.status);
 
 
   return(
@@ -211,11 +207,12 @@ var requestOptions = {
         dashboardItems = (<p style={{color:'red'}}>{results.message}</p>);
       }else{
 
-console.log('jt',results);
+
    dashboardItems =   results.dashboarditems.map(result=>{
-       console.log('pok', result);
+   
        
-    if(!result.status){result.status = 'false'; console.log('uhj',result)}
+    if(!result.status){result.status = 'false';}
+    
        if (result.claims) {
 
       dashboarditemsArray = Object.entries(result.claims); //turn the Object to array of arrays
