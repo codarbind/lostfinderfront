@@ -193,6 +193,7 @@ export default function Dashboard(props) {
   let urlencoded = new URLSearchParams();
       var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    
 urlencoded.append('token',retrievedToken);
 var requestOptions = {
   method: 'get',

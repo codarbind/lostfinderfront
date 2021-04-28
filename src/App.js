@@ -50,7 +50,7 @@ fetch(`${process.env.REACT_APP_backEndAPI_URL}/confirmtoken`, requestOptions)
   .then(response => response.json())
   .then(result => {
     let {userEmail, firstName} = result.verifiedJwt;
-    console.log('verifiedJwt',result.verifiedJwt);
+
     
     this.setState({
       headerProps:{auth:result.auth},

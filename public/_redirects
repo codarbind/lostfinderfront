@@ -1,10 +1,2 @@
-/faqs  /faqs
-/login /login
-/signup /signup
-/dashboard /dashboard
-/terms /terms
-/pass/* /pass/:splat
-/resetpassword /resetpassword
-/claimitem /claimitem
-/returnitem /returnitem
-/* /
+
+/* /index.html 200
