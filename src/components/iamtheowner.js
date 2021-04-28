@@ -56,7 +56,7 @@ let messageNumber = 0;
 
 
 function claim(e,itemId){
-  alert(`itemid ${itemId}`);
+
   e.preventDefault();
   document.getElementById('message').innerHTML = 'working on it....';
   document.getElementById('message').style.color = 'blue';

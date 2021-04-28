@@ -90,6 +90,7 @@ fetch(`${process.env.REACT_APP_backEndAPI_URL}/confirmtoken`, requestOptions)
       <Route path='/resetpassword' component={Resetpassword} />
       <Route path='/claimitem' component={Iamtheowner}/>
       <Route path='/returnitem' component={IfoundThis}/>
+      <Route path='/dashboard' component={Dashboard}/>
       
       <Route path='/faqs' component={Faqs}/>
       <Route path='/terms' component={Terms}/>
