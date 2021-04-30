@@ -69,13 +69,12 @@ function setPassword(e){
   var urlencoded, setPasswordInputs;
     urlencoded = new URLSearchParams();
     
-    console.log('userEmail front',userEmail);
     //get input values
     for (var i = 3; i > 0; i--) {
       let name = document.getElementById(i).name;
       let value = document.getElementById(i).value;
       urlencoded.append(name,value);
-      i == 1? userEmail = value: console.log('i != 1') ;
+      i == 1? userEmail = value: console.log('i') ;
       
     }
   var myHeaders = new Headers();
@@ -92,18 +91,21 @@ var requestOptions = {
 fetch(`${process.env.REACT_APP_backEndAPI_URL}/pass/setpassword`, requestOptions)
   .then(response => response.json())
   .then(result => {
-    console.log(result,result.status);
+   
     if(result.status == 200 && result.token){
       Cookies.set('lfjwt', result.token, { expires: 7 });
-      console.log('after cookie',result.token);
+      
       //set timeout to inform user password set is successful, before reloading
       document.getElementById('message').innerHTML = result['message'];
       document.getElementById('message').style.color = passMessagesColor[`${result['id']}`];
-      setTimeout(()=>{window.location.replace('http://localhost:3000/')},5000);
+      setTimeout(()=>{window.location.replace('/')},1000);
       
     } else{
-      //show message in console to users
-      console.log('Password was not set, the link might have expired. Please try again.')
+  
+        //set timeout to inform user password was not set, before reloading
+      document.getElementById('message').innerHTML = 'Password was not set, the link might have expired. Please try again.';
+      document.getElementById('message').style.color = 'red';
+      setTimeout(()=>{window.location.replace('/')},1000);
     }
 
   })
@@ -113,11 +115,11 @@ fetch(`${process.env.REACT_APP_backEndAPI_URL}/pass/setpassword`, requestOptions
 
 
 const Pass = () =>{
-
+  Cookies.remove('lfjwt');
   let path = window.location['pathname'];
   let lastIndex = path.lastIndexOf('/');
   let token = path.slice(lastIndex + 1)
-  console.log('here is the tokenPass ',token);
+
 
 	 const classes = useStyles();
    const [isLoaded, setIsLoaded] = React.useState(false);
@@ -126,6 +128,8 @@ const Pass = () =>{
 //get input values
 let setPasswordInputs = {};
 function getValue(e){
+    document.getElementById('message').innerHTML = 'working on it....';
+  document.getElementById('message').style.color = 'blue';
   let value = e.target.value;
   let name = e.target.name;
   setPasswordInputs[name] = value;
@@ -139,7 +143,7 @@ function getValue(e){
                                  (result)=>{
                                    setIsLoaded(true);
                                    setItems(result);
-                                   console.log('here is the api res ',result);
+                                
                                    messageNumber = result.id;
                                    if(result.status ==404){
                                     document.getElementById('message').innerHTML = result.message;
