@@ -194,7 +194,7 @@ export default  function Header(props) {
             {list('left')}
           </Drawer> 
           <Typography variant="h6" className={classes.title} component={Link} to='/'>
-            Lostfinders
+            Lostfinder
           </Typography>
           {auth && (
 
