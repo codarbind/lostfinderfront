@@ -33,6 +33,7 @@ class App extends Component {
 
 
 
+
 componentDidMount(){
         let retrievedToken = Cookies.get('lfjwt');
 let urlencoded = new URLSearchParams();
@@ -46,11 +47,11 @@ var requestOptions = {
   redirect: 'follow'
 };
 
+
 fetch(`${process.env.REACT_APP_backEndAPI_URL}/confirmtoken`, requestOptions)
   .then(response => response.json())
   .then(result => {
     let {userEmail, firstName} = result.verifiedJwt;
-
     
     this.setState({
       headerProps:{auth:result.auth},

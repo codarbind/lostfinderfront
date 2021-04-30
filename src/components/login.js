@@ -83,7 +83,7 @@ fetch(`${process.env.REACT_APP_backEndAPI_URL}/login`, requestOptions)
       //inform users that login was success before reloading
       document.getElementById('message').innerHTML = result['message'];
       document.getElementById('message').style.color = loginMessagesColor[`${result['id']}`];
-      setTimeout(()=>{window.location.replace('/')},5000);
+      setTimeout(()=>{window.location.replace('/')},1000);
     }else{
       //reply to user that login was not successful
       document.getElementById('message').innerHTML = result['message'];
