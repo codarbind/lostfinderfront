@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 let signupMessages ={
   0:"",
-  1:"a validation link has been sent, kindly use it to set your password in the next 40mins",
+  1:"a validation link has been sent, kindly use it to set your password (YOU MAY NEED TO CHECK SPAM )",
   2:"the email address you provided is not allowed",
   3:"the email address provided is registered already",
   }

@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 let resetpasswordMessages ={
   0:"",
-  1:"a reset link has been sent, kindly use it to reset your password in the next 40mins",
+  1:"a reset link has been sent, kindly use it to reset your password (YOU MAY NEED TO CHECK SPAM)",
   2:"wrong details",
   3:"No account with that email address",
 
