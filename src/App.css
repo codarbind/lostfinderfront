@@ -49,13 +49,23 @@
 }
 .launch input {
   width: 60%;
+  outline: none;
 }
 
 .launch button {
   width: 100px;
   margin-left: 10px;
+  background: #000;
+  border-radius: 5px;
+  padding: 6px;
+  border: none;
+ 
 }
+.launch a{
+  text-decoration: none;
+  color: #fff;
 
+}
 .launch img {
   width: 50%;
 }
@@ -76,7 +86,7 @@
   }
 
   .launch button {
-    width: 100%;
+    width: 105%;
     margin-left: 0;
   }
 

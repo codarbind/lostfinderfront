@@ -1,61 +1,70 @@
 import React from "react";
-import image from "../hidden.svg"
+import image from "../hidden.svg";
 
 function Launch() {
   return (
-    <div 
-    style={{
-    height: "100vh",
-    padding: "3rem 0"
-  }}
-  className = "launch"
-    >
-<div style={{background: "#fff",
-width: "80%",
-margin: "0 auto",
-height: "80vh",
-borderRadius: "8px",
-padding: "10px",
-
-}}>
-
-
-  <div className="flex-box"
-  style = {{
-    marginTop: "25px"
-  }}
-  >
-
     <div
-      style = {{
-        marginTop: "25px"
-      }}>
-      <small>Under Revamp</small>
-      <h4 style={{
-        letterSpacing: "2px",
-        marginTop:"10px"
-        }}>GET NOTIFIED WHEN WE ARE OPEN!</h4>
-      
-        <div style={{marginTop: "50px"}}>
-      <input type="email" placeholder="Enter your email..." style={{
-      borderRadius: "5px",
-      border: "1px solid gray",
-      padding: "5px"}} />
-      <button style={{color: "#fff",
-      background: "#000",
-      borderRadius: "5px",
-      border: "none",
-      padding: "6px"}}>Notify Me</button>
+      style={{
+        height: "100vh",
+        padding: "3rem 0",
+      }}
+      className="launch"
+    >
+      <div
+        style={{
+          background: "#fff",
+          width: "80%",
+          margin: "0 auto",
+          height: "80vh",
+          borderRadius: "8px",
+          padding: "10px",
+        }}
+      >
+        <div
+          className="flex-box"
+          style={{
+            marginTop: "25px",
+          }}
+        >
+          <div
+            style={{
+              marginTop: "25px",
+            }}
+          >
+            <small>Under Revamp</small>
+            <h4
+              style={{
+                letterSpacing: "2px",
+                marginTop: "10px",
+              }}
+            >
+              GET NOTIFIED WHEN WE ARE OPEN!
+            </h4>
+
+            <div style={{ marginTop: "50px" }}>
+              <input
+                type="email"
+                placeholder="Enter your email..."
+                style={{
+                  borderRadius: "5px",
+                  border: "1px solid gray",
+                  padding: "5px",
+                }}
+              />
+              <button>
+                  <a
+                  
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSejHmxbpcgd1o6PgG-fEesvCkNJhLBPIDhgHtVFg7zGCJi3gw/viewform?usp=sf_link"
+                  >
+                    Notify Me
+                  </a>
+              </button>
+            </div>
+          </div>
+          <img src={image} height="30%" alt="" />
         </div>
-    </div>
-    <img src={image}  height="30%" alt="" />
-  </div>
-
-
-</div>
- 
       </div>
-    
+    </div>
   );
 }
 
