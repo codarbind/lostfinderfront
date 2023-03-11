@@ -36,3 +36,57 @@
     transform: rotate(360deg);
   }
 }
+
+.launch{
+  text-align: left;
+}
+
+.launch .flex-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 2rem;
+}
+.launch input {
+  width: 60%;
+}
+
+.launch button {
+  width: 100px;
+  margin-left: 10px;
+}
+
+.launch img {
+  width: 50%;
+}
+
+.launch h4 {
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 1000px) {
+
+
+  .launch h4 {
+    font-size: 1rem;
+  }
+
+  .launch img {
+    width: 100%;
+  }
+
+  .launch button {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .launch input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .launch .flex-box {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
