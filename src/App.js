@@ -35,6 +35,10 @@ class App extends Component {
     let urlencoded = new URLSearchParams();
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    myHeaders.append(
+      "x-access-client-token",
+      process.env.REACT_APP_client_token
+    );
     urlencoded.append("token", retrievedToken);
     var requestOptions = {
       method: "POST",
@@ -70,7 +74,6 @@ class App extends Component {
     return (
       <div className="App" style={{ background: "yellow" }}>
         <BrowserRouter>
-        
           {/* {<Header headerProps={this.state.headerProps} />}
           {
             <div
@@ -97,8 +100,10 @@ class App extends Component {
           } */}
 
           <Route path="/login" component={Login} />
-          <Route  path="/launch" ><Redirect to = "/launch"/> </Route>
-          <Route  path="/signup" component={SignUp} />
+          <Route path="/launch">
+            <Redirect to="/launch" />{" "}
+          </Route>
+          <Route path="/signup" component={SignUp} />
           <Route path="/pass" component={Pass} />
           <Route path="/resetpassword" component={Resetpassword} />
           <Route path="/claimitem" component={Iamtheowner} />
