@@ -97,7 +97,7 @@ class App extends Component {
           } */}
 
           <Route path="/login" component={Login} />
-          <Route  path="*" ><Redirect to = "/launch"/> </Route>
+          <Route  path="/launch" ><Redirect to = "/launch"/> </Route>
           <Route  path="/signup" component={SignUp} />
           <Route path="/pass" component={Pass} />
           <Route path="/resetpassword" component={Resetpassword} />
