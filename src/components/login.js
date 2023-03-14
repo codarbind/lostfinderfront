@@ -7,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Cookies from "js-cookie";
-import { questionToAns } from "../App";
+import { confirmClient, questionToAns } from "../App";
 
 const useStyles = makeStyles((theme) => ({
   signContainer: {
@@ -48,12 +48,13 @@ let loginMessagesColor = {
 
 let messageNumber = 0;
 
-function login(e) {
+async function login(e) {
   e.preventDefault();
   let qA = questionToAns();
   let confirm_ans = window.prompt(qA.question);
   //  console.log({ confirm_ans });
   if (confirm_ans != qA.answer) return false;
+  //let client_token = await confirmClient();
   document.getElementById("message").innerHTML = "working on it....";
   document.getElementById("message").style.color = "blue";
   var urlencoded;
@@ -66,6 +67,7 @@ function login(e) {
   }
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+  //myHeaders.append("x-client-access-token", client_token);
 
   var requestOptions = {
     method: "POST",
