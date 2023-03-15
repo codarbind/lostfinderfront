@@ -4,6 +4,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
+import { questionToAns } from "../App";
 
 const useStyles = makeStyles((theme) => ({
   signContainer: {
@@ -60,6 +61,10 @@ const Resetpassword = () => {
   //call backend api
   function resetpassword(e) {
     e.preventDefault();
+    let qA = questionToAns();
+    let confirm_ans = window.prompt(qA.question);
+    //  console.log({ confirm_ans });
+    if (confirm_ans != qA.answer) return false;
     document.getElementById("0").innerHTML = "working on it....";
     document.getElementById("0").style.color = "blue";
 

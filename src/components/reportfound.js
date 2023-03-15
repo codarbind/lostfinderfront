@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Cookies from "js-cookie";
+import { questionToAns } from "../App";
 
 let messageColor = {
   1: "green",
@@ -22,6 +23,10 @@ function getModalStyle() {
 
 export function ReportItem(e) {
   e.preventDefault();
+  let qA = questionToAns();
+  let confirm_ans = window.prompt(qA.question);
+  //  console.log({ confirm_ans });
+  if (confirm_ans != qA.answer) return false;
   document.getElementById("0").innerHTML = "working on it....";
   document.getElementById("0").style.color = "blue";
   var urlencoded = new URLSearchParams();
@@ -43,7 +48,6 @@ export function ReportItem(e) {
     : urlencoded.append("token", null);
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-  myHeaders.append("x-access-client-token", process.env.REACT_APP_client_token);
 
   var requestOptions = {
     method: "POST",

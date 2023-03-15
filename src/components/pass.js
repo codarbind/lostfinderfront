@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import MoodBadIcon from "@material-ui/icons/MoodBad";
 import Cookies from "js-cookie";
+import { questionToAns } from "../App";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -63,6 +64,10 @@ let userEmail;
 
 function setPassword(e) {
   e.preventDefault();
+  let qA = questionToAns();
+  let confirm_ans = window.prompt(qA.question);
+  //  console.log({ confirm_ans });
+  if (confirm_ans != qA.answer) return false;
   var urlencoded, setPasswordInputs;
   urlencoded = new URLSearchParams();
 

@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button";
 import Cookies from "js-cookie";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import { questionToAns } from "../App";
 
 const useStyles = makeStyles((theme) => ({
   signContainer: {
@@ -51,6 +52,10 @@ let messageNumber = 0;
 
 function claim(e, itemId) {
   e.preventDefault();
+  let qA = questionToAns();
+  let confirm_ans = window.prompt(qA.question);
+  //  console.log({ confirm_ans });
+  if (confirm_ans != qA.answer) return false;
   document.getElementById("message").innerHTML = "working on it....";
   document.getElementById("message").style.color = "blue";
   var urlencoded;
@@ -72,7 +77,6 @@ function claim(e, itemId) {
   urlencoded.append("id", itemId);
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-  myHeaders.append("x-access-client-token", process.env.REACT_APP_client_token);
 
   var requestOptions = {
     method: "POST",
