@@ -1,8 +1,8 @@
 //import logo from './logo.svg';
 import "./App.css";
 import Header from "./components/header";
-import { Component, useEffect } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Component } from "react";
+import { BrowserRouter, Redirect, Route } from "react-router-dom";
 import Login from "./components/login";
 import SignUp from "./components/signup";
 import Homebody from "./components/homebody";
@@ -18,7 +18,7 @@ import Dashboard from "./components/dashboard";
 import Faqs from "./components/faqs";
 import Terms from "./components/terms";
 import Contact from "./components/contact";
-import * as jose from "jose";
+import Launch from "./components/launch";
 
 class App extends Component {
   constructor(props) {
@@ -30,13 +30,11 @@ class App extends Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     let retrievedToken = Cookies.get("lfjwt");
     let urlencoded = new URLSearchParams();
     var myHeaders = new Headers();
-
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-    //myHeaders.append("x-client-access-token", "await confirmClient()");
     urlencoded.append("token", retrievedToken);
     var requestOptions = {
       method: "POST",
@@ -72,7 +70,7 @@ class App extends Component {
     return (
       <div className="App" style={{ background: "yellow" }}>
         <BrowserRouter>
-          {<Header headerProps={this.state.headerProps} />}
+          {/* {<Header headerProps={this.state.headerProps} />}
           {
             <div
               style={{
@@ -95,38 +93,26 @@ class App extends Component {
               </Grid>
               <Route exact path="/" component={Homebody} />
             </div>
-          }
+          } */}
 
           <Route path="/login" component={Login} />
+          <Route path="*">
+            <Redirect to="/launch" />{" "}
+          </Route>
           <Route path="/signup" component={SignUp} />
           <Route path="/pass" component={Pass} />
           <Route path="/resetpassword" component={Resetpassword} />
           <Route path="/claimitem" component={Iamtheowner} />
           <Route path="/returnitem" component={IfoundThis} />
           <Route path="/dashboard" component={Dashboard} />
-
           <Route path="/faqs" component={Faqs} />
           <Route path="/terms" component={Terms} />
           <Route path="/contact" component={Contact} />
+          <Route path="/launch" component={Launch} />
         </BrowserRouter>
       </div>
     );
   }
-}
-
-export async function confirmClient() {
-  const alg = "HS256";
-  const jwt = await new jose.SignJWT({ "urn:example:claim": true })
-    .setProtectedHeader({ alg })
-    .setIssuedAt()
-    //.setIssuer('host:lostfinder')
-    //.setAudience('urn:example:audience')
-    .setExpirationTime("2m")
-    .sign(process.env.REACT_APP_client_secret);
-
-  console.log(jwt);
-  Cookies.set("t6BJy5GL5MtTdTtFxhhBX5yzVJSfnEMfQnQ4Gq6", jwt);
-  return jwt;
 }
 
 export function questionToAns() {
