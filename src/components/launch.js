@@ -38,7 +38,7 @@ function Launch() {
                 marginTop: "10px",
               }}
             >
-              GET NOTIFIED WHEN WE ARE OPEN!
+              GET NOTIFIED WHEN WE ARE BACK!
             </h4>
 
             <div style={{ marginTop: "50px" }}>
@@ -52,12 +52,9 @@ function Launch() {
                 }}
               />
               <button>
-                  <a
-                  
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSejHmxbpcgd1o6PgG-fEesvCkNJhLBPIDhgHtVFg7zGCJi3gw/viewform?usp=sf_link"
-                  >
-                    Notify Me
-                  </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScKEuhZo0Kkc5ZpHIoQMgVUVi1CjRKRYORwaySYQxZxjadUOw/viewform?usp=sf_link">
+                  Notify Me
+                </a>
               </button>
             </div>
           </div>
